@@ -1,0 +1,15 @@
+.button{
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 2rem;
+}
+
+.button button{
+    padding: 1.5rem 2rem;
+    background-color: var(--color-primary);
+    color: var(--color-quaternary);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}

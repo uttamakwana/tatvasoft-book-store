@@ -12,33 +12,33 @@
   text-align: center;
 }
 
-h1 {
+.page-not-found-container h1 {
   font-size: 6em;
   color: #e74c3c;
   margin: 0;
   line-height: 1em;
 }
 
-p {
+.page-not-found-container p {
   font-size: 1.5em;
   color: #333;
 }
 
-a {
+.page-not-found-container a {
   color: #3498db;
   text-decoration: none;
 }
 
-a:hover {
+.page-not-found-container a:hover {
   text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-  h1 {
+  .page-not-found-container h1 {
     font-size: 4em;
   }
 
-  p {
+  .page-not-found-container p {
     font-size: 1.2em;
   }
 }

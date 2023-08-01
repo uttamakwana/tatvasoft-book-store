@@ -3,9 +3,9 @@ import React, { createContext, useState } from "react";
 export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
-  const [counter, setCounter] = useState(0);
+  const [theme, setTheme] = useState("light");
   return (
-    <Context.Provider value={{ counter, setCounter }}>
+    <Context.Provider value={{ theme, setTheme }}>
       {children}
     </Context.Provider>
   );
