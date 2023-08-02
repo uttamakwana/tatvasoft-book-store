@@ -1,0 +1,12 @@
+.theme-container{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    padding: 1rem;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+}
+
+.theme-container:hover{
+    cursor: pointer;
+}

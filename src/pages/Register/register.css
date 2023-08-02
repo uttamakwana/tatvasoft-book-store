@@ -13,11 +13,11 @@
   height: 100vh;
   box-sizing: border-box;
   display: block;
-  background-color: #0e4166;
+  background-color: var(--color-primary);
   background-image: linear-gradient(
     to bottom,
     var(--color-primary),
-    var(--color-quaternary)
+    var(--color-secondary)
   );
   z-index: -1;
 }

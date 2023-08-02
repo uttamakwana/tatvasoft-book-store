@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./register.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -13,6 +15,7 @@ const Register = () => {
       setConfirmPassword("");
       return alert("Password must be same");
     }
+    navigate("/login");
   };
   return (
     <section className="register">
@@ -32,15 +35,15 @@ const Register = () => {
             <linearGradient id="bg">
               <stop
                 offset="0%"
-                style={{ stopColor: "rgba(130, 158, 249, 0.06)" }}
+                style={{ stopColor: "var(--color-primary)" }}
               />
               <stop
                 offset="50%"
-                style={{ stopColor: "rgba(76, 190, 255, 0.6)" }}
+                style={{ stopColor: "var(--color-secondary)" }}
               />
               <stop
                 offset="100%"
-                style={{ stopColor: "rgba(115, 209, 72, 0.2)" }}
+                style={{ stopColor: "var(--color-primary)" }}
               />
             </linearGradient>
             <path
@@ -128,7 +131,7 @@ const Register = () => {
               type="password"
               name="confirm-password"
               id="confirm-password"
-              pattern="[a-zA-Z0-9$!@#*+_/.]{6,8}"
+              pattern="[a-zA-Z0-9$!@#*+_]{6,8}"
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}

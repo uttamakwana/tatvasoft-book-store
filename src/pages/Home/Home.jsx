@@ -4,11 +4,11 @@ import { Context } from "../../context/ContextProvider.jsx";
 import './home.css';
 
 const Home = () => {
-  const { setTheme, theme } = useContext(Context);
+  // const { setTheme, theme } = useContext(Context);
   return (
     <>
       <Header />
-      <div className="button">
+      {/* <div className="button">
         <button
           onClick={() => {
             setTheme("light");
@@ -25,7 +25,7 @@ const Home = () => {
         >
           Dark Mode
         </button>
-      </div>
+      </div> */}
     </>
   );
 };

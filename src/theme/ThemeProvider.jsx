@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import AllRoutes from "../routes/AllRoutes";
 import { Context } from "../context/ContextProvider";
+import "./themeprovider.css";
 
 const ThemeProvider = () => {
-  const { theme } = useContext(Context);
+  const { theme, setTheme } = useContext(Context);
   useEffect(() => {
     if (theme === "light") {
       document.documentElement.style.setProperty("--color-primary", "#579BB1");
@@ -29,7 +30,23 @@ const ThemeProvider = () => {
       );
     }
   }, [theme]);
-  return <AllRoutes />;
+  return (
+    <>
+      <AllRoutes />
+      <main
+        className="theme-container"
+        onClick={() => {
+          if (theme === "dark") {
+            setTheme("light");
+          } else {
+            setTheme("dark");
+          }
+        }}
+      >
+        <section className="theme">🎡</section>
+      </main>
+    </>
+  );
 };
 
 export default ThemeProvider;
