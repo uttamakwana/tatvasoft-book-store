@@ -8,7 +8,7 @@ const Header = () => {
       <figure className="header__logo">
         {/* <img src={images.logo} alt="none" /> */}
         <figcaption>
-          <h1>Logo</h1>
+          <h1>Tatvasoft</h1>
         </figcaption>
       </figure>
       <nav className="header__nav">
