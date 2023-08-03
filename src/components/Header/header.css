@@ -20,7 +20,7 @@
 
 .header__logo figcaption h1{
     font-size: 2rem;
-    color: var(--color-secondary);
+    color: var(--color-quaternary);
 }
 
 .header__nav{

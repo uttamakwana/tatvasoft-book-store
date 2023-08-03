@@ -1,30 +1,31 @@
 import React, { useState } from "react";
-import "./register.css";
+import "./login.css";
 import { useNavigate } from "react-router-dom";
-import { toast, Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-const Register = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
+    if (password !== "uttamisadmin") {
       setPassword("");
-      setConfirmPassword("");
-      return alert("Password must be same");
+      toast.error("Register first");
+      setTimeout(() => {
+        navigate("/register");
+      }, 3000);
     }
-    toast.success("Registration Successfull");
+    toast.success("Login Successfull");
     setTimeout(() => {
-      navigate("/login");
-    }, 2000);
+      navigate("/");
+    }, 3000);
   };
   return (
-    <section className="register">
-      <div className="register__background">
+    <section className="login">
+      <div className="login__background">
         <svg
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
@@ -98,22 +99,12 @@ const Register = () => {
           </g>
         </svg>
       </div>
-      <main className="register__container">
-        <form className="register__container__form" onSubmit={handleRegister}>
-          <div className="register__container__form__form-group">
-            <h1>📝Register</h1>
+      <main className="login__container">
+        <form className="login__container__form" onSubmit={handleLogin}>
+          <div className="login__container__form__form-group">
+            <h1>📟Login</h1>
           </div>
-          <div className="register__container__form__form-group">
-            <div className="even">
-              <label htmlFor="first-name">First Name</label>
-              <input type="text" name="first-name" id="first-name" required />
-            </div>
-            <div className="even">
-              <label htmlFor="last-name">Last Name</label>
-              <input type="text" name="last-name" id="last-name" required />
-            </div>
-          </div>
-          <div className="register__container__form__form-group">
+          <div className="login__container__form__form-group">
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -125,7 +116,7 @@ const Register = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div className="register__container__form__form-group">
+          <div className="login__container__form__form-group">
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -137,31 +128,17 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="register__container__form__form-group">
-            <label htmlFor="confirm-password">Confirm Password</label>
-            <input
-              type="password"
-              name="confirm-password"
-              id="confirm-password"
-              pattern="[a-zA-Z0-9$!@#*+_]{6,15}"
-              required
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+          <div className="login__container__form__form-group">
+            <button type="submit">login</button>
           </div>
-          <div className="register__container__form__form-group">
-            <button type="submit">Register</button>
-          </div>
-          <div className="register__container__form__form-group">
-            <p>
-              <Link to="/login">Already have an account?</Link>
-            </p>
+          <div className="login__container__form__form-group">
+            <p><Link to="/register">Don't have an account?</Link></p>
           </div>
         </form>
-        <Toaster />
       </main>
+      <Toaster />
     </section>
   );
 };
 
-export default Register;
+export default Login;

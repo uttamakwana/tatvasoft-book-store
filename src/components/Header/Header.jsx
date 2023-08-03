@@ -1,6 +1,7 @@
 import React from "react";
 import './header.css';
 import images from "../../constants/images";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
       <figure className="header__logo">
         {/* <img src={images.logo} alt="none" /> */}
         <figcaption>
-          <h1>Tatvasoft</h1>
+          <h1>TatvaSoft</h1>
         </figcaption>
       </figure>
       <nav className="header__nav">
@@ -25,12 +26,12 @@ const Header = () => {
           </li>
           <li className="header__nav__list__item">
             <a href="#" className="header__nav__list__item__link">
-              Contact
+              Books
             </a>
           </li>
           <li className="header__nav__list__item">
             <a href="#" className="header__nav__list__item__link">
-              Login
+              <Link to="/login">Logout</Link>
             </a>
           </li>
         </ul>
