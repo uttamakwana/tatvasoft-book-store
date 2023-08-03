@@ -99,7 +99,7 @@ const Register = () => {
       <main className="register__container">
         <form className="register__container__form" onSubmit={handleRegister}>
           <div className="register__container__form__form-group">
-            <h1>Register</h1>
+            <h1>📝Register</h1>
           </div>
           <div className="register__container__form__form-group">
             <label htmlFor="username">Username</label>
