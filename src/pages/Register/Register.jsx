@@ -33,10 +33,7 @@ const Register = () => {
         >
           <defs>
             <linearGradient id="bg">
-              <stop
-                offset="0%"
-                style={{ stopColor: "var(--color-primary)" }}
-              />
+              <stop offset="0%" style={{ stopColor: "var(--color-primary)" }} />
               <stop
                 offset="50%"
                 style={{ stopColor: "var(--color-secondary)" }}
@@ -104,11 +101,11 @@ const Register = () => {
           <div className="register__container__form__form-group">
             <div className="even">
               <label htmlFor="first-name">First Name</label>
-              <input type="text" name="first-name" id="first-name" />
+              <input type="text" name="first-name" id="first-name" required />
             </div>
             <div className="even">
               <label htmlFor="last-name">Last Name</label>
-              <input type="text" name="last-name" id="last-name" />
+              <input type="text" name="last-name" id="last-name" required />
             </div>
           </div>
           <div className="register__container__form__form-group">
