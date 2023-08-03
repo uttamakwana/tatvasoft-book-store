@@ -3,6 +3,7 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -13,18 +14,23 @@ const Login = () => {
     e.preventDefault();
     if (password !== "uttamisadmin") {
       setPassword("");
-      toast.error("Register first");
-      setTimeout(() => {
+      toast.error("Register first", { duration: 1000 });
+      return setTimeout(() => {
         navigate("/register");
       }, 3000);
     }
     toast.success("Login Successfull");
     setTimeout(() => {
       navigate("/");
-    }, 3000);
+    }, 4000);
   };
   return (
-    <section className="login">
+    <motion.section
+      className="login"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+    >
       <div className="login__background">
         <svg
           version="1.1"
@@ -132,12 +138,14 @@ const Login = () => {
             <button type="submit">login</button>
           </div>
           <div className="login__container__form__form-group">
-            <p><Link to="/register">Don't have an account?</Link></p>
+            <p>
+              <Link to="/register">Don't have an account?</Link>
+            </p>
           </div>
         </form>
       </main>
       <Toaster />
-    </section>
+    </motion.section>
   );
 };
 

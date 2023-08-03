@@ -3,6 +3,7 @@ import "./register.css";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -23,7 +24,12 @@ const Register = () => {
     }, 2000);
   };
   return (
-    <section className="register">
+    <motion.section
+      className="register"
+      initial={{ opacity: 0}}
+      animate={{ opacity: 1}}
+      transition={{ duration: 1.5 }}
+    >
       <div className="register__background">
         <svg
           version="1.1"
@@ -160,7 +166,7 @@ const Register = () => {
         </form>
         <Toaster />
       </main>
-    </section>
+    </motion.section>
   );
 };
 
