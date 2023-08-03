@@ -46,18 +46,31 @@
   gap: 0.2rem;
 }
 
+.register__container__form__form-group:nth-child(2) {
+  flex-direction: row;
+}
+
+.register__container__form__form-group .even{
+  width: 50%;
+}
+
+.register__container__form__form-group .even input{
+  width: 100%;
+}
+
+
 .register__container__form__form-group h1 {
   text-align: center;
   font-weight: 700;
   font-family: var(--font-heading);
   font-size: 2rem;
-  color: var(--color-primary);
+  color: var(--color-quaternary);
 }
 
 .register__container__form__form-group label {
   font-family: var(--font-label);
   font-size: 1rem;
-  color: var(--color-primary);
+  color: var(--color-quaternary);
 }
 
 .register__container__form__form-group input {
@@ -71,7 +84,7 @@
   backdrop-filter: blur(3.3px);
   -webkit-backdrop-filter: blur(3.3px);
   border: 1px solid rgba(255, 255, 255, 0.17);
-  color: var(--color-primary);
+  color: var(--color-quaternary);
 }
 
 .register__container__form__form-group button {
@@ -86,7 +99,7 @@
   backdrop-filter: blur(3.3px);
   -webkit-backdrop-filter: blur(3.3px);
   border: 1px solid rgba(255, 255, 255, 0.17);
-  color: var(--color-primary);
+  color: var(--color-quaternary);
 }
 
 /* Mobile */

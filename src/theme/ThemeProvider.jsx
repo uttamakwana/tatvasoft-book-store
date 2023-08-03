@@ -7,15 +7,15 @@ const ThemeProvider = () => {
   const { theme, setTheme } = useContext(Context);
   useEffect(() => {
     if (theme === "light") {
-      document.documentElement.style.setProperty("--color-primary", "#579BB1");
+      document.documentElement.style.setProperty("--color-primary", "#4682A9");
       document.documentElement.style.setProperty(
         "--color-secondary",
-        "#ECE8DD"
+        "#749BC2"
       );
-      document.documentElement.style.setProperty("--color-tertiary", "#E1D7C6");
+      document.documentElement.style.setProperty("--color-tertiary", "#91C8E4");
       document.documentElement.style.setProperty(
         "--color-quaternary",
-        "#F8F4EA"
+        "#F6F4EB"
       );
     } else {
       document.documentElement.style.setProperty("--color-primary", "#191919");

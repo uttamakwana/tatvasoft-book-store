@@ -102,6 +102,16 @@ const Register = () => {
             <h1>📝Register</h1>
           </div>
           <div className="register__container__form__form-group">
+            <div className="even">
+              <label htmlFor="first-name">First Name</label>
+              <input type="text" name="first-name" id="first-name" />
+            </div>
+            <div className="even">
+              <label htmlFor="last-name">Last Name</label>
+              <input type="text" name="last-name" id="last-name" />
+            </div>
+          </div>
+          <div className="register__container__form__form-group">
             <label htmlFor="username">Username</label>
             <input
               type="text"
