@@ -30,9 +30,9 @@ const Header = () => {
             </a>
           </li>
           <li className="header__nav__list__item">
-            <a href="#" className="header__nav__list__item__link">
+            <span href="#" className="header__nav__list__item__link">
               <Link to="/login">Logout</Link>
-            </a>
+            </span>
           </li>
         </ul>
       </nav>

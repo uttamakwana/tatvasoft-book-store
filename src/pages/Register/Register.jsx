@@ -23,7 +23,7 @@ const Register = () => {
         return alert("Password must be same");
       }
       const data = await axios.post(
-        "http://localhost:4000/api/v1/users/storeUser",
+        "http://localhost:4000/api/v1/users/register",
         {
           firstName,
           lastName,
