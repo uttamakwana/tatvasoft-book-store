@@ -1,33 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./register.css";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const Register = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      setPassword("");
-      setConfirmPassword("");
-      return alert("Password must be same");
+  const handleRegister = async (e) => {
+    try {
+      e.preventDefault();
+      if (password !== confirmPassword) {
+        setPassword("");
+        setConfirmPassword("");
+        return alert("Password must be same");
+      }
+      const data = await axios.post(
+        "http://localhost:4000/api/v1/users/storeUser",
+        {
+          firstName,
+          lastName,
+          username,
+          password,
+        }
+      );
+      console.log(data);
+      if (data) {
+        toast.success(data.data.message);
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
     }
-    toast.success("Registration Successfull");
-    setTimeout(() => {
-      navigate("/login");
-    }, 2000);
   };
+
   return (
     <motion.section
       className="register"
-      initial={{ opacity: 0}}
-      animate={{ opacity: 1}}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
       <div className="register__background">
@@ -112,11 +132,23 @@ const Register = () => {
           <div className="register__container__form__form-group">
             <div className="even">
               <label htmlFor="first-name">First Name</label>
-              <input type="text" name="first-name" id="first-name" required />
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                required
+                onChange={(e) => setFirstName(e.target.value)}
+              />
             </div>
             <div className="even">
               <label htmlFor="last-name">Last Name</label>
-              <input type="text" name="last-name" id="last-name" required />
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                required
+                onChange={(e) => setLastName(e.target.value)}
+              />
             </div>
           </div>
           <div className="register__container__form__form-group">

@@ -4,25 +4,40 @@ import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (password !== "uttamisadmin") {
-      setPassword("");
-      toast.error("Register first", { duration: 1000 });
-      return setTimeout(() => {
-        navigate("/register");
-      }, 3000);
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/api/v1/users/login",
+        { username, password }
+      );
+      if (response) {
+        toast.success(response.data.message, { duration: 1000 });
+        setTimeout(() => {
+          navigate("/");
+        }, 4000);
+      }
+    } catch (error) {
+      console.log(error);
     }
-    toast.success("Login Successfull");
-    setTimeout(() => {
-      navigate("/");
-    }, 4000);
+    // if (password !== "uttamisadmin") {
+    //   setPassword("");
+    //   toast.error("Register first", { duration: 1000 });
+    //   return setTimeout(() => {
+    //     navigate("/register");
+    //   }, 3000);
+    // }
+    // toast.success("Login Successfull");
+    // setTimeout(() => {
+    //   navigate("/");
+    // }, 4000);
   };
   return (
     <motion.section
