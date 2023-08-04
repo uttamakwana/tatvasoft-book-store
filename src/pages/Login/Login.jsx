@@ -25,6 +25,9 @@ const Login = () => {
         }, 4000);
       }
     } catch (error) {
+      console.log(error.response.data.message);
+      toast.error(error.response.data.message);
+      // toast.error("Username or password may be wrong");
       console.log(error);
     }
     // if (password !== "uttamisadmin") {

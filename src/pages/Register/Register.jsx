@@ -20,7 +20,7 @@ const Register = () => {
       if (password !== confirmPassword) {
         setPassword("");
         setConfirmPassword("");
-        return alert("Password must be same");
+        return toast.error("Password must be same", { duration: 1000 });
       }
       const data = await axios.post(
         "http://localhost:4000/api/v1/users/register",
@@ -34,11 +34,12 @@ const Register = () => {
       console.log(data);
       if (data) {
         toast.success(data.data.message);
-        setTimeout(() => {
+        return setTimeout(() => {
           navigate("/login");
         }, 2000);
       }
     } catch (error) {
+      toast.error("User already exits", { duration: 1000 });
       console.log(error);
     }
   };
@@ -196,8 +197,8 @@ const Register = () => {
             </p>
           </div>
         </form>
-        <Toaster />
       </main>
+      <Toaster position="top-center" />
     </motion.section>
   );
 };
