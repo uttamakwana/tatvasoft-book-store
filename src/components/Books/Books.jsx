@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./books.css";
 import { Book } from "../../containers";
-import axios from "axios";
 import { Context } from "../../context/ContextProvider";
 
 const Books = () => {

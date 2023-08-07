@@ -4,7 +4,25 @@
   justify-content: space-between;
   /* height: 10vh; */
   padding: 1.5rem 1rem;
+  /* background-color: var(--color-primary); */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.header.active {
+  /* background: linear-gradient(
+    334deg,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-quaternary)
+  ); */
   background-color: var(--color-primary);
+}
+
+.header.not-active{
 }
 
 .header__logo {

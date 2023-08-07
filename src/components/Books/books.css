@@ -1,3 +1,6 @@
+.books {
+  /* background-color: var(--color-tertiary); */
+}
 .books__header h1 {
   text-align: center;
   padding: 1rem;
@@ -24,10 +27,10 @@
   border-radius: 5px;
   border: none;
   outline: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   width: 80%;
+  background-color: transparent;
+  border: 1px solid var(--color-quaternary);
 }
 
 .books__search-bar div button {

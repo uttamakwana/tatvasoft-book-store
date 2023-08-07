@@ -31,6 +31,7 @@
   height: 100%;
   object-fit: contain;
   border-radius: 5px;
+  /* mix-blend-mode: color-burn; */
   /* height: 200px; */
 }
 

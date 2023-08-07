@@ -1,11 +1,27 @@
-import React from "react";
-import './header.css';
-import images from "../../constants/images";
+import React, { useState, useEffect } from "react";
+import "./header.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [headerActive, setHeaderActive] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setHeaderActive(true);
+      } else {
+        setHeaderActive(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <header className="header">
+    <header className={`header ${headerActive ? "active" : "not-active"}`}>
       <figure className="header__logo">
         {/* <img src={images.logo} alt="none" /> */}
         <figcaption>
@@ -30,7 +46,11 @@ const Header = () => {
             </a>
           </li>
           <li className="header__nav__list__item">
-            <span href="#" className="header__nav__list__item__link" id="logout-btn">
+            <span
+              href="#"
+              className="header__nav__list__item__link"
+              id="logout-btn"
+            >
               <Link to="/login">Logout</Link>
             </span>
           </li>
