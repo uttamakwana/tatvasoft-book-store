@@ -19,18 +19,18 @@ const Header = () => {
               Home
             </a>
           </li>
-          <li className="header__nav__list__item">
+          {/* <li className="header__nav__list__item">
             <a href="#" className="header__nav__list__item__link">
               About
             </a>
-          </li>
+          </li> */}
           <li className="header__nav__list__item">
             <a href="#" className="header__nav__list__item__link">
               Books
             </a>
           </li>
           <li className="header__nav__list__item">
-            <span href="#" className="header__nav__list__item__link">
+            <span href="#" className="header__nav__list__item__link" id="logout-btn">
               <Link to="/login">Logout</Link>
             </span>
           </li>
