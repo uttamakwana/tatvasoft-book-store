@@ -31,8 +31,8 @@ const Register = () => {
           password,
         }
       );
-      console.table(data);
-      if (data) {
+      // console.table(data);
+      if (data.data.message === "Registration successfull!") {
         toast.success(data.data.message);
         // const wantToNavigateToLogin = confirm("Do you want to login?");
         // if (wantToNavigateToLogin) {
@@ -41,8 +41,9 @@ const Register = () => {
           navigate("/login");
         }, 2000);
       }
+      toast.error("Failed to register!", { duration: 1000 });
     } catch (error) {
-      toast.error("User already exits", { duration: 1000 });
+      toast.error("User already exits! Use another email!", { duration: 1000 });
       console.log(error);
     }
   };
