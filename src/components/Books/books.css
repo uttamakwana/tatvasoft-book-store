@@ -1,0 +1,70 @@
+.books__header h1 {
+  text-align: center;
+  padding: 1rem;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-quaternary);
+}
+
+.books__search-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.books__search-bar div {
+  display: flex;
+  gap: 0.25rem;
+  width: 75%;
+  max-width: 900px;
+}
+
+.books__search-bar div input,
+.books__search-bar div button {
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  width: 80%;
+}
+
+.books__search-bar div button {
+  width: 20%;
+  background-color: var(--color-quaternary);
+  color: var(--color-primary);
+}
+
+.books__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 550px) {
+  .books__search-bar div input {
+    width: 60%;
+  }
+
+  .books__search-bar div button {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .books__search-bar div {
+    flex-direction: column;
+  }
+
+  .books__search-bar div input {
+    width: 100%;
+  }
+
+  .books__search-bar div button {
+    width: 100%;
+  }
+}
