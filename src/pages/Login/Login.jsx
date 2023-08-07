@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Login = () => {
     try {
       const response = await axios.post(
         "http://localhost:4000/api/v1/users/login",
-        { username, password }
+        { email, password }
       );
       if (response) {
         toast.success(response.data.message, { duration: 1000 });
@@ -129,15 +129,14 @@ const Login = () => {
             <h1>📟Login</h1>
           </div>
           <div className="login__container__form__form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="email-login">Email</label>
             <input
-              type="text"
-              name="username"
-              id="username"
+              type="email"
+              name="email-login"
+              id="email-login"
               required
-              pattern="[a-zA-Z0-9]+"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="login__container__form__form-group">

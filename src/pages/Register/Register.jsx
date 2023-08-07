@@ -9,7 +9,7 @@ import axios from "axios";
 const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
@@ -27,13 +27,16 @@ const Register = () => {
         {
           firstName,
           lastName,
-          username,
+          email,
           password,
         }
       );
-      console.log(data);
+      console.table(data);
       if (data) {
         toast.success(data.data.message);
+        // const wantToNavigateToLogin = confirm("Do you want to login?");
+        // if (wantToNavigateToLogin) {
+        // }
         return setTimeout(() => {
           navigate("/login");
         }, 2000);
@@ -153,15 +156,14 @@ const Register = () => {
             </div>
           </div>
           <div className="register__container__form__form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="email-register">Email</label>
             <input
-              type="text"
-              name="username"
-              id="username"
+              type="email"
+              name="email-register"
+              id="email-register"
               required
-              pattern="[a-zA-Z0-9]+"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="register__container__form__form-group">
