@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [headerActive, setHeaderActive] = useState(false);
   const [isToggle, setToggle] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +42,11 @@ const Header = () => {
             </p>
           </li>
           <li className="header__nav__list__item">
-            <a href="#" className="header__nav__list__item__link">
+            <a
+              href="#"
+              className="header__nav__list__item__link"
+              onClick={() => navigate("/")}
+            >
               Home
             </a>
           </li>
@@ -51,7 +56,11 @@ const Header = () => {
             </a>
           </li> */}
           <li className="header__nav__list__item">
-            <a href="#" className="header__nav__list__item__link">
+            <a
+              href="#"
+              className="header__nav__list__item__link"
+              onClick={() => navigate("/books")}
+            >
               Books
             </a>
           </li>

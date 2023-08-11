@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Books />
-      <Footer />
-      <div class="gradient"></div>
+      {/* <Books /> */}
+      {/* <Footer /> */}
+      {/* <div class="gradient"></div> */}
     </>
   );
 };
