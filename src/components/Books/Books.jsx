@@ -7,7 +7,7 @@ const Books = () => {
   const { books, setFilteredBooks } = useContext(Context);
   const [search, setSearch] = useState("");
 
-  if(search === "") {
+  if (search === "") {
     setFilteredBooks(books);
   }
 

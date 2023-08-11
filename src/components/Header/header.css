@@ -22,7 +22,7 @@
   background-color: var(--color-primary);
 }
 
-.header.not-active{
+.header.not-active {
 }
 
 .header__logo {
@@ -80,4 +80,57 @@
 .header__nav__list__item:last-child:hover {
   cursor: pointer;
   transform: translateY(-1px);
+}
+
+.header__toggle-bar {
+  display: none;
+}
+
+@media only screen and (max-width: 550px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .header__toggle-bar {
+    display: block;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    transition: all 0.8s ease;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+  .header__nav.active {
+    left: 0;
+  }
+
+  .header__nav .header__nav__list {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header__nav .header__nav__list .header__nav__list__item:first-child {
+    width: 100%;
+    text-align: end;
+    margin-right: 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  .header__toggle-bar .bars {
+    display: block;
+    height: 5px;
+    width: 25px;
+    background-color: black;
+    margin: 5px auto;
+  }
 }

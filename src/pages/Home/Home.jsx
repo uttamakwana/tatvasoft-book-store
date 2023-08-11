@@ -1,5 +1,5 @@
 import React from "react";
-import { Books, Header } from "../../components/index.js";
+import { Books, Footer, Header } from "../../components/index.js";
 import "./home.css";
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
     <>
       <Header />
       <Books />
+      <Footer />
       <div class="gradient"></div>
     </>
   );

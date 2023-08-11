@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [headerActive, setHeaderActive] = useState(false);
+  const [isToggle, setToggle] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -28,8 +30,11 @@ const Header = () => {
           <h1>TatvaSoft</h1>
         </figcaption>
       </figure>
-      <nav className="header__nav">
+      <nav className={`header__nav ${isToggle ? "active" : ""}`}>
         <ul className="header__nav__list">
+          <li className="header__nav__list__item">
+            <p onClick={() => setToggle(!isToggle)}>X</p>
+          </li>
           <li className="header__nav__list__item">
             <a href="#" className="header__nav__list__item__link">
               Home
@@ -56,6 +61,14 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <section
+        className="header__toggle-bar"
+        onClick={() => setToggle(!isToggle)}
+      >
+        <span className="bars"></span>
+        <span className="bars"></span>
+        <span className="bars"></span>
+      </section>
     </header>
   );
 };
