@@ -98,7 +98,7 @@
   .header__nav {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: -130%;
     transition: all 0.8s ease;
     width: 100vw;
     height: 100vh;
@@ -133,4 +133,16 @@
     background-color: black;
     margin: 5px auto;
   }
+}
+
+.close-icon {
+  cursor: pointer;
+}
+
+.close-icon.invisible {
+  display: none;
+}
+
+.close-icon.visible {
+  display: block;
 }

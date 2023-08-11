@@ -33,7 +33,12 @@ const Header = () => {
       <nav className={`header__nav ${isToggle ? "active" : ""}`}>
         <ul className="header__nav__list">
           <li className="header__nav__list__item">
-            <p onClick={() => setToggle(!isToggle)}>X</p>
+            <p
+              onClick={() => setToggle(!isToggle)}
+              className={`close-icon ${!isToggle ? "invisible" : "visible"}`}
+            >
+              X
+            </p>
           </li>
           <li className="header__nav__list__item">
             <a href="#" className="header__nav__list__item__link">
