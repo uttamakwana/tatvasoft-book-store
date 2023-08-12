@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <Header />
       {/* <Books /> */}
-      {/* <Footer /> */}
+      <Footer />
       {/* <div class="gradient"></div> */}
     </>
   );
