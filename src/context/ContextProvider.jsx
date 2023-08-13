@@ -7,6 +7,7 @@ const ContextProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
   const [books, setBooks] = useState([]);
   const [filterdBooks, setFilteredBooks] = useState(books);
+  const [isAdmin, setIsAdmin] = useState(false);
   console.log(filterdBooks);
   console.log(books);
 
@@ -28,6 +29,8 @@ const ContextProvider = ({ children }) => {
         setBooks,
         filterdBooks,
         setFilteredBooks,
+        isAdmin,
+        setIsAdmin
       }}
     >
       {children}

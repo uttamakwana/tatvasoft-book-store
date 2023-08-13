@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./register.css";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
+// import { Context } from "../../context/ContextProvider";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -13,8 +14,16 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
+  // const location = useLocation();
+  // const { isAdmin, setIsAdmin } = useContext(Context);
 
   const handleRegister = async (e) => {
+    // console.log(location.pathname);
+    let url = "http://localhost:4000/api/v1/users/register";
+    // if (isAdmin) {
+    //   url = "http://localhost:4000/api/v1/admin/register";
+    //   setIsAdmin(false);
+    // }
     try {
       e.preventDefault();
       if (password !== confirmPassword) {
@@ -22,15 +31,12 @@ const Register = () => {
         setConfirmPassword("");
         return toast.error("Password must be same", { duration: 1000 });
       }
-      const data = await axios.post(
-        "http://localhost:4000/api/v1/users/register",
-        {
-          firstName,
-          lastName,
-          email,
-          password,
-        }
-      );
+      const data = await axios.post(url, {
+        firstName,
+        lastName,
+        email,
+        password,
+      });
       // console.table(data);
       if (data.data.message === "Registration successfull!") {
         toast.success(data.data.message);

@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import "./login.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
 
 const Login = () => {
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
+    let url;
+    if (location.pathname === "/admin") {
+      url = "http://localhost:4000/api/v1/admin/login";
+    } else {
+      url = "http://localhost:4000/api/v1/users/login";
+    }
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/v1/users/login",
-        { email, password }
-      );
+      const response = await axios.post(url, { email, password });
       if (response) {
         toast.success(response.data.message, { duration: 1000 });
         setTimeout(() => {
