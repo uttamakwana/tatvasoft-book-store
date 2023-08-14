@@ -8,8 +8,10 @@ const ContextProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
   const [filterdBooks, setFilteredBooks] = useState(books);
   const [isAdmin, setIsAdmin] = useState(false);
-  console.log(filterdBooks);
-  console.log(books);
+  const [adminData, setAdminData] = useState({});
+  const [users, setUsers] = useState([]);
+  // console.log(filterdBooks);
+  // console.log(books);
 
   useEffect(() => {
     axios
@@ -30,7 +32,11 @@ const ContextProvider = ({ children }) => {
         filterdBooks,
         setFilteredBooks,
         isAdmin,
-        setIsAdmin
+        setIsAdmin,
+        adminData,
+        setAdminData,
+        users,
+        setUsers,
       }}
     >
       {children}

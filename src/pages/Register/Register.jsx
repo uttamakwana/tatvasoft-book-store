@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./register.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
-// import { Context } from "../../context/ContextProvider";
+import { Context } from "../../context/ContextProvider";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,14 +14,15 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  // const location = useLocation();
-  // const { isAdmin, setIsAdmin } = useContext(Context);
+  const location = useLocation();
+  const { isAdmin, setIsAdmin } = useContext(Context);
 
   const handleRegister = async (e) => {
-    // console.log(location.pathname);
+    console.log(location.pathname);
     let url = "http://localhost:4000/api/v1/users/register";
+    // let url = "http://localhost:4000/api/v1/admin/register";
+    // console.log(isAdmin);
     // if (isAdmin) {
-    //   url = "http://localhost:4000/api/v1/admin/register";
     //   setIsAdmin(false);
     // }
     try {

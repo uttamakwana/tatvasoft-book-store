@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./login.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { Context } from "../../context/ContextProvider";
 
 const Login = () => {
   const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setIsAdmin } = useContext(Context);
 
   const handleLogin = async (e) => {
     let url;
@@ -25,8 +27,13 @@ const Login = () => {
       if (response) {
         toast.success(response.data.message, { duration: 1000 });
         setTimeout(() => {
-          navigate("/");
-        }, 4000);
+          if (location.pathname === "/admin") {
+            setIsAdmin(true);
+            navigate("/admin");
+          } else {
+            navigate("/");
+          }
+        }, 1000);
       }
     } catch (error) {
       console.log(error.response.data.message);

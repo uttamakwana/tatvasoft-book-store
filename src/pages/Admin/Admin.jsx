@@ -1,15 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Login from "../Login/Login";
 import { Context } from "../../context/ContextProvider";
-import { useLocation } from "react-router-dom";
+import { AdminDashbaoard } from "../../components/index.js";
 
 const Admin = () => {
-  const location = useLocation();
-  const { setIsAdmin } = useContext(Context);
-  useEffect(() => {
-    setIsAdmin(true);
-  }, []);
-  return <Login />;
+  const { isAdmin } = useContext(Context);
+  return <>{isAdmin ? <AdminDashbaoard /> : <Login />}</>;
 };
 
 export default Admin;
