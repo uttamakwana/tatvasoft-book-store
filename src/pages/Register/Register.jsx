@@ -10,6 +10,7 @@ import { Context } from "../../context/ContextProvider";
 const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [role, setRole] = useState("Buyer");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -35,11 +36,12 @@ const Register = () => {
       const data = await axios.post(url, {
         firstName,
         lastName,
+        role,
         email,
         password,
       });
       // console.table(data);
-      if (data.data.message === "Registration successfull!") {
+      if (data.data.message) {
         toast.success(data.data.message);
         // const wantToNavigateToLogin = confirm("Do you want to login?");
         // if (wantToNavigateToLogin) {
@@ -162,6 +164,19 @@ const Register = () => {
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
+          </div>
+          <div className="register__container__form__form-group">
+            <label htmlFor="role-register">Role</label>
+            <select
+              name="role-register"
+              id="role-register"
+              required
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="Buyer">Buyer</option>
+              <option value="Seller">Seller</option>
+            </select>
           </div>
           <div className="register__container__form__form-group">
             <label htmlFor="email-register">Email</label>

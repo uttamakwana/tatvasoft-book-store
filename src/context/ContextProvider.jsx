@@ -10,15 +10,22 @@ const ContextProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminData, setAdminData] = useState({});
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
+  const [authToken, setAuthToken] = useState("");
   // console.log(filterdBooks);
   // console.log(books);
 
   useEffect(() => {
     axios
-      .get("https://book-e-sell-node-api.vercel.app/api/book/all")
+      .post(
+        "http://localhost:4000/api/v1/books/getBooks",
+        {},
+        { withCredentials: true }
+      )
       .then((res) => {
-        setBooks(res.data.result);
-        setFilteredBooks(res.data.result);
+        setBooks(res.data.data);
+        setFilteredBooks(res.data.data);
+        console.log(res);
       });
   }, []);
 
@@ -37,6 +44,10 @@ const ContextProvider = ({ children }) => {
         setAdminData,
         users,
         setUsers,
+        user,
+        setUser,
+        authToken,
+        setAuthToken,
       }}
     >
       {children}

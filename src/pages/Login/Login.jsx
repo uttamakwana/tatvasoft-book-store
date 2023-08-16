@@ -6,26 +6,36 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { Context } from "../../context/ContextProvider";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { setIsAdmin } = useContext(Context);
+  const { setIsAdmin, setUser, setAuthToken, authToken } = useContext(Context);
 
   const handleLogin = async (e) => {
-    let url;
-    if (location.pathname === "/admin") {
-      url = "http://localhost:4000/api/v1/admin/login";
-    } else {
-      url = "http://localhost:4000/api/v1/users/login";
-    }
     e.preventDefault();
+    let url;
+    url = "http://localhost:4000/api/v1/users/login";
+    // if (location.pathname === "/admin") {
+    //   url = "http://localhost:4000/api/v1/admin/login";
+    // } else {
+    // }
     try {
-      const response = await axios.post(url, { email, password });
+      const response = await axios.post(
+        url,
+        { email, password },
+        { withCredentials: true }
+      );
       if (response) {
+        setUser(response.data.data);
         toast.success(response.data.message, { duration: 1000 });
+        const authTokenValue = Cookies.get("authToken");
+        if (authTokenValue) {
+          setAuthToken(authTokenValue);
+        }
         setTimeout(() => {
           if (location.pathname === "/admin") {
             setIsAdmin(true);
